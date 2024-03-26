@@ -46,6 +46,17 @@ function concluirTarefas (index){
 function deletarItem(index){
     minhaListaDeItens.splice(index, 1)
 
+    
+
+}
+
+function recarregarTarefas() {
+    const tarefasDoLocalStorage = localStorage.getItem('lista')
+
+    if (tarefasDoLocalStorage) {
+        minhaListaDeItens = JSON.parse(tarefasDoLocalStorage)
+    }
+
     mostrarTarefas()
 }
 
