@@ -47,7 +47,7 @@ function deletarItem(index){
     minhaListaDeItens.splice(index, 1)
 
     
-
+    mostrarTarefas()
 }
 
 function recarregarTarefas() {
