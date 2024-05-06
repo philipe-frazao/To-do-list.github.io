@@ -1,85 +1,108 @@
 @charset "UTF-8";
 
+:root {
+  --color-green-50: #0fbb23;
+  --color-green-100: #0c991d;
+  --color-green-150: #0a7716;
+
+  --color-light-50: #f6f6f6;
+  --color-light-100: #d4d4d4;
+  --color-light-150: #b3b3b3;
+
+  --color-dark-50: #3c3c3c;
+  --color-dark-100: #1d1d1d;
+  --color-dark-150: #000000;
+}
+
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
-    outline: none;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  outline: none;
 }
 
 body {
-     background: url("./img/fundo-de-madeira.jpg");
+  display: flex;
+  position: relative;
+  background-color: var(--color-dark-150);
 }
 
 .container {
-    background-color: lightgray;
-    width: 500px;
-    border-radius: 10px;
-    padding: 20px;
-    margin: 100px auto 0;
+  background-color: var(--color-dark-100);
+  width: 500px;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 100px auto 0;
 }
 
 .input-task {
-    border: none;
-    border-radius: 10px;
-    width: 335px;
-    height: 40px;
-    padding-left: 10px;
-    font-size: 1.05rem;
+  border: none;
+  border-radius: 10px;
+  width: 335px;
+  height: 40px;
+  padding-left: 10px;
+  font-size: 1.05rem;
+  background-color: var(--color-dark-50);
+  color: var(--color-light-100);
 }
 
 .button-add-task {
-    border: none;
-    border-radius: 5px;
-    height: 40px;
-    background-color: #663514;
-    color: white;
-    font-size: 17px;
-    padding: 0 15px;
-    float: right;
-    cursor: pointer;
-    font-weight: 700;
+  border: none;
+  border-radius: 5px;
+  height: 40px;
+  background-color: var(--color-green-150);
+  color: var(--color-dark-100);
+  font-size: 17px;
+  padding: 0 15px;
+  float: right;
+  cursor: pointer;
+  font-weight: 700;
 }
 
 .button-add-task:hover {
-    opacity: 0.8;
+  opacity: 0.8;
 }
 
 .button-add-task:active {
-    opacity: 0.6;
+  opacity: 0.6;
 }
 
 .list-task {
-    width: 100%;
-    list-style: none;
-    margin-top: 25px;
+  width: 100%;
+  list-style: none;
+  margin-top: 25px;
 }
 
 .task {
-    background-color: #f2f2f2;
-    box-shadow: 1px 4px 10px rgba(0, 0, 0, 0.2);
-    height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 15px;
-    border-radius: 5px;
-    margin-bottom: 20px;
-    cursor: pointer;
+  background-color: var(--color-dark-50);
+  color: var(--color-light-100);
+  box-shadow: 1px 4px 10px rgba(0, 0, 0, 0.2);
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 15px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  cursor: pointer;
 }
 
-img {
-    height: 25px;
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out;
+i {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  color: var(--color-light-100);
+  font-size: 1.2rem;
 }
 
-.task:hover img {
-    opacity: 1;
+.task:hover i {
+  opacity: 1;
 }
 
 .done {
-    background-color: #8fac55;
-    text-decoration: line-through;
+  background-color: var(--color-green-150);
+}
+
+.done p {
+  text-decoration: line-through;
 }

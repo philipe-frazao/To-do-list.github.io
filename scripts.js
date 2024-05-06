@@ -1,65 +1,65 @@
-const button = document.querySelector('.button-add-task')
-const input = document.querySelector('.input-task')
-const listCompleta = document.querySelector('.list-task')
+const button = document.querySelector(".button-add-task");
+const input = document.querySelector(".input-task");
+const listCompleta = document.querySelector(".list-task");
 
-let minhaListaDeItens = []
+let minhaListaDeItens = [];
 
-function adicionarNovaTarefa(){
-    minhaListaDeItens.push({
-        tarefa: input.value,
-        concluida: false
-    })
+function adicionarNovaTarefa() {
+  minhaListaDeItens.push({
+    tarefa: input.value,
+    concluida: false
+  });
 
-    input.value = ''
+  input.value = "";
 
-    mostrarTarefas()
+  mostrarTarefas();
 }
 
-function mostrarTarefas(){
+function mostrarTarefas() {
+  let novaLi = "";
 
-    let novaLi = ''
-
-    minhaListaDeItens.forEach((item, index) => {
-        novaLi = novaLi + 
-        `
+  minhaListaDeItens.forEach((item, index) => {
+    novaLi =
+      novaLi +
+      `
             <li class="task ${item.concluida && "done"}">
-            <img  src="./img/checked.png" alt="check-na-tarefa" onclick="concluirTarefas(${index})">
+            <i class="fa-solid fa-check" onclick="concluirTarefas(${index})"></i>
+           
             <p>${item.tarefa}</p>
-            <img src="./img/trash.png" alt="tarefa-para-o-lixo" onclick="deletarItem(${index})">
+            
+            <i class="fa-solid fa-trash" onclick="deletarItem(${index})"></i>
+        
             </li>
-        `
-    })
+        `;
+  });
 
-    listCompleta.innerHTML = novaLi
+  listCompleta.innerHTML = novaLi;
 
-    localStorage.setItem('lista', JSON.stringify(minhaListaDeItens))
+  localStorage.setItem("lista", JSON.stringify(minhaListaDeItens));
 }
 
+function concluirTarefas(index) {
+  minhaListaDeItens[index].concluida = !minhaListaDeItens[index].concluida;
 
-function concluirTarefas (index){
-    minhaListaDeItens[index].concluida = !minhaListaDeItens[index].concluida
-
-    mostrarTarefas()
+  mostrarTarefas();
 }
 
+function deletarItem(index) {
+  minhaListaDeItens.splice(index, 1);
 
-function deletarItem(index){
-    minhaListaDeItens.splice(index, 1)
-
-    
-    mostrarTarefas()
+  mostrarTarefas();
 }
 
 function recarregarTarefas() {
-    const tarefasDoLocalStorage = localStorage.getItem('lista')
+  const tarefasDoLocalStorage = localStorage.getItem("lista");
 
-    if (tarefasDoLocalStorage) {
-        minhaListaDeItens = JSON.parse(tarefasDoLocalStorage)
-    }
+  if (tarefasDoLocalStorage) {
+    minhaListaDeItens = JSON.parse(tarefasDoLocalStorage);
+  }
 
-    mostrarTarefas()
+  mostrarTarefas();
 }
 
-recarregarTarefas()
+recarregarTarefas();
 
-button.addEventListener('click', adicionarNovaTarefa)
+button.addEventListener("click", adicionarNovaTarefa);
