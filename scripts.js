@@ -5,14 +5,18 @@ const listCompleta = document.querySelector(".list-task");
 let minhaListaDeItens = [];
 
 function adicionarNovaTarefa() {
-  minhaListaDeItens.push({
-    tarefa: input.value,
-    concluida: false
-  });
+  if (input.value.trim() !== "") {
+    minhaListaDeItens.push({
+      tarefa: input.value,
+      concluida: false
+    });
 
-  input.value = "";
+    input.value = "";
 
-  mostrarTarefas();
+    mostrarTarefas();
+  } else {
+    alert("Por favor, insira uma tarefa antes de adicionar!");
+  }
 }
 
 function mostrarTarefas() {
@@ -23,11 +27,11 @@ function mostrarTarefas() {
       novaLi +
       `
             <li class="task ${item.concluida && "done"}">
-            <i class="fa-solid fa-check" onclick="concluirTarefas(${index})"></i>
+            <i class="check fa-solid fa-check" onclick="concluirTarefas(${index})"></i>
            
             <p>${item.tarefa}</p>
             
-            <i class="fa-solid fa-trash" onclick="deletarItem(${index})"></i>
+            <i class="trash fa-solid fa-trash" onclick="deletarItem(${index})"></i>
         
             </li>
         `;
